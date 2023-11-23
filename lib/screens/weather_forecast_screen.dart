@@ -11,7 +11,7 @@ class WeatherForecastScreen extends StatefulWidget {
 }
 
 class _WeatherForecastScreenState extends State<WeatherForecastScreen> {
-  List<dynamic> forecastData = []; // Aquí almacenarás los datos del pronóstico
+  List<dynamic> forecastData = [];
 
   @override
   void initState() {
