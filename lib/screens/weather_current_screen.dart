@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:tp_flutter/providers/city_provider.dart';
+import 'package:provider/provider.dart';
 
 class WeatherCurrentScreen extends StatefulWidget {
   final String city;
@@ -27,13 +29,15 @@ class _WeatherCurrentScreenState extends State<WeatherCurrentScreen> {
 
   @override
   Widget build(BuildContext context) {
+    String city = Provider.of<CityProvider>(context).city;
+
     var temperature = currentWeatherData['currentWeather']['temperature'];
     var description =
         currentWeatherData['currentWeather']['weatherDescription'];
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Clima Actual - ${widget.city}'),
+        title: Text('Clima Actual - ${city}'),
       ),
       body: Center(
         child: Column(

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:tp_flutter/screens/weather_forecast_detail_screen.dart';
+import 'package:tp_flutter/providers/city_provider.dart';
+import 'package:provider/provider.dart';
 
 class WeatherForecastScreen extends StatefulWidget {
-  final String city;
-
-  WeatherForecastScreen({required this.city});
+  WeatherForecastScreen();
 
   @override
   _WeatherForecastScreenState createState() => _WeatherForecastScreenState();
@@ -834,9 +835,10 @@ class _WeatherForecastScreenState extends State<WeatherForecastScreen> {
 
   @override
   Widget build(BuildContext context) {
+    String city = Provider.of<CityProvider>(context).city;
     return Scaffold(
       appBar: AppBar(
-        title: Text('Pronóstico del Tiempo - ${widget.city}'),
+        title: Text('Pronóstico del Tiempo - ${city}'),
       ),
       body: ListView.builder(
         itemCount: forecastData.length,
@@ -853,6 +855,19 @@ class _WeatherForecastScreenState extends State<WeatherForecastScreen> {
           return ListTile(
             title: Text('$formattedDate - $formattedTime'),
             subtitle: Text('$temperature°C - $description'),
+            onLongPress: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => WeatherForecastDetailScreen(
+                    date: formattedDate,
+                    time: formattedTime,
+                    temperature: temperature,
+                    description: description,
+                  ),
+                ),
+              );
+            },
           );
         },
       ),

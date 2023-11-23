@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:tp_flutter/providers/city_provider.dart';
 import 'weather_list_screen.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -31,11 +33,13 @@ class HomeScreen extends StatelessWidget {
             SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
+                Provider.of<CityProvider>(context, listen: false)
+                    .updateCity(_cityController.text);
+
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) =>
-                        WeatherListScreen(city: _cityController.text),
+                    builder: (context) => WeatherListScreen(),
                   ),
                 );
               },
