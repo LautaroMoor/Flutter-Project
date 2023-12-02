@@ -1,16 +1,37 @@
-# tp_flutter
+# Aplicación del Clima
 
-TP de flutter
+## Descripción
 
-## Getting Started
+La aplicación del clima es una aplicación móvil basada en Flutter que proporciona información meteorológica para diferentes ubicaciones. Los usuarios pueden buscar una ciudad específica para ver las condiciones meteorológicas actuales y acceder a pronósticos detallados.
 
-This project is a starting point for a Flutter application.
+## Funcionalidades
 
-A few resources to get you started if this is your first Flutter project:
+- **Clima Actual:**
+  - Muestra la temperatura actual y la descripción del clima para la ciudad seleccionada.
+- **Pronóstico del Tiempo:**
+  - Permite ver pronósticos detallados, incluyendo fecha, hora, temperatura y descripción del clima.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Inicio Rápido
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Requisitos Previos
+
+- [Flutter SDK](https://flutter.dev/docs/get-started/install)
+- [Dart SDK](https://dart.dev/get-dart)
+- [IDE de Flutter (por ejemplo, VS Code, Android Studio)](https://flutter.dev/docs/get-started/editor)
+
+### Instalación
+
+1. Clona el repositorio:
+
+   ```bash
+   git clone https://github.com/tu-usuario/tu-repositorio.git
+
+2. Instalar dependencias:
+
+   ```bash
+   flutter pub get
+
+3. Correr el programa:
+
+   ```bash
+    flutter run

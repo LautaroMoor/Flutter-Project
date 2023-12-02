@@ -22,7 +22,7 @@ class WeatherListScreen extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => WeatherCurrentScreen(city: city),
+                    builder: (context) => WeatherCurrentScreen(),
                   ),
                 );
               },

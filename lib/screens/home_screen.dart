@@ -8,6 +8,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    CityProvider cityProvider = Provider.of<CityProvider>(context);
     return Scaffold(
       appBar: AppBar(
         title: Text('Aplicación del clima'),
@@ -16,6 +17,11 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Image.network(
+              'https://www.infobae.com/new-resizer/YGRxC7ubLy4Bya53y8yaoJJn0X4=/arc-anglerfish-arc2-prod-infobae/public/R4F5W2JWGNFJBMO45ODUJN7AAI.jpg',
+              width: 200,
+            ),
+            SizedBox(height: 20),
             Container(
               padding: EdgeInsets.symmetric(horizontal: 20),
               decoration: BoxDecoration(
@@ -33,8 +39,7 @@ class HomeScreen extends StatelessWidget {
             SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                Provider.of<CityProvider>(context, listen: false)
-                    .updateCity(_cityController.text);
+                cityProvider.city = _cityController.text;
 
                 Navigator.push(
                   context,

@@ -3,33 +3,32 @@ import 'package:tp_flutter/providers/city_provider.dart';
 import 'package:provider/provider.dart';
 
 class WeatherCurrentScreen extends StatefulWidget {
-  final String city;
+  // final String city;
 
-  WeatherCurrentScreen({required this.city});
+  // WeatherCurrentScreen({required this.city});
 
   @override
   _WeatherCurrentScreenState createState() => _WeatherCurrentScreenState();
 }
 
 class _WeatherCurrentScreenState extends State<WeatherCurrentScreen> {
-  Map<String, dynamic> currentWeatherData = {};
+  // @override
+  // void initState() {
+  //   super.initState();
 
-  @override
-  void initState() {
-    super.initState();
-
-    currentWeatherData = {
-      "currentWeather": {
-        "city": "Estado de Bahia",
-        "temperature": 21.03,
-        "weatherDescription": "nubes"
-      }
-    };
-  }
+  //   currentWeatherData = {
+  //     "currentWeather": {
+  //       "city": "Estado de Bahia",
+  //       "temperature": 21.03,
+  //       "weatherDescription": "nubes"
+  //     }
+  //   };
+  // }
 
   @override
   Widget build(BuildContext context) {
-    String city = Provider.of<CityProvider>(context).city;
+    CityProvider cityProvider = Provider.of<CityProvider>(context);
+    Map<String, dynamic> currentWeatherData = cityProvider.currentWeatherData;
 
     var temperature = currentWeatherData['currentWeather']['temperature'];
     var description =
@@ -37,7 +36,7 @@ class _WeatherCurrentScreenState extends State<WeatherCurrentScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Clima Actual - ${city}'),
+        title: Text('Clima Actual - ${cityProvider.city}'),
       ),
       body: Center(
         child: Column(
